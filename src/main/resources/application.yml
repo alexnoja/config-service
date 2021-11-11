@@ -1,0 +1,17 @@
+server:
+  port: 8888 # The port that the Config Service application will listen on.
+
+spring:
+  #profiles.active: native
+  application:
+    name: config-service # A name for the current application.
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/alexnoja/config-repo # The URL to the remote Git repository to use as the Environment backend.
+          #default-label: master # By default, the server should return configuration data from the "master" branch.
+          timeout: 5 # Time limit to establish a connection with the remote repository.
+          clone-on-start: true # Clone the remote repository locally on startup.
+          force-pull: true # Force pulling the remote repository and discarding any local change.
+          #basedir: By default, the local repository is cloned in a folder with a random name. If needed, you can control where it gets cloned through this property.
